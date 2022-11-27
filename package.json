@@ -1,0 +1,24 @@
+{
+  "name": "visita",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:frontend": "webpack ./src/dynamoApp/add_data.js --mode development --target web --devtool false -o main.js",
+    "test": "exit 0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity": "^3.216.0",
+    "@aws-sdk/client-dynamodb": "^3.216.0",
+    "@aws-sdk/client-iam": "^3.32.0",
+    "@aws-sdk/client-s3": "^3.32.0",
+    "@aws-sdk/client-sns": "^3.216.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.216.0",
+    "package.json": "^2.0.1"
+  },
+  "devDependencies": {
+    "path-browserify": "^1.0.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
+  }
+}
