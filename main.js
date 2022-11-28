@@ -31638,6 +31638,8 @@ const submitData = async () => {
       phone_number: { S: phone_number + "" },
     },
   };
+
+  
   // Check that all the fields are completed.
   if (id != "" && name != "" && location != "" && date != "" && phone_number != "") {
     try {
@@ -31647,12 +31649,10 @@ const submitData = async () => {
       try {
         // Create the message parameters object.
         const messageParams = {
-          Message: "A new item with ID value was added to the DynamoDB",
-          PhoneNumber: "+66994328748", //PHONE_NUMBER, in the E.164 phone number structure.
-          // For example, ak standard local formatted number, such as (415) 555-2671, is +14155552671 in E.164
-          // format, where '1' in the country code.
-        };
-        // Send the SNS message
+            Message: "A new item was added to the DynamoDB table. Check it, ASAP!", // MESSAGE_TEXT
+            TopicArn: "arn:aws:sns:ap-southeast-1:105002408443:visita-new-entries", //TOPIC_ARN
+          };
+        // Send the email
         const data = await _libs_snsClient_js__WEBPACK_IMPORTED_MODULE_0__.snsClient.send(new _aws_sdk_client_sns__WEBPACK_IMPORTED_MODULE_3__.PublishCommand(messageParams));
         console.log(
           "Success, message published. MessageID is " + data.MessageId
